@@ -7,7 +7,7 @@ class Constants {
 
     // Paths to endpoints
     static uploadFilePath = '/2/files/upload';
-    static getMetadataPath = '/2/sharing/get_file_metadata';
+    static getMetadataPath = '/2/files/get_metadata';
     static deleteFilePath = '/2/files/delete_v2';
 
 

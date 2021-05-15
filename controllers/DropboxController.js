@@ -1,4 +1,3 @@
-let got = require("got");
 let axios = require("axios");
 let Constants = require("../utils/Constants");
 
@@ -20,7 +19,6 @@ class DropboxController {
 
         this.getFileConf = {
             method: 'post',
-            url: Constants.dropboxApiUrl + Constants.getMetadataPath,
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + Constants.accessToken,
@@ -29,19 +27,18 @@ class DropboxController {
                 "path": this.dropBoxFilePath
             }
         };
-
     }
 
     async uploadFileToStorage() {
-        return got(Constants.dropboxContentUrl + Constants.uploadFilePath, this.uploadFileToStorageConf);
+        return axios(Constants.dropboxContentUrl + Constants.uploadFilePath, this.uploadFileToStorageConf);
     }
 
     async getFileMetadata() {
-        return  axios(this.getFileConf);
+        return  axios(Constants.dropboxApiUrl + Constants.getMetadataPath, this.getFileConf);
     }
 
     async deleteFileFromStorage() {
-        return got(Constants.dropboxApiUrl + Constants.deleteFilePath, this.getFileConf);
+        return axios(Constants.dropboxApiUrl + Constants.deleteFilePath, this.getFileConf);
     }
 }
 
