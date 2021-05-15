@@ -4,5 +4,5 @@ Install this packages
 1. npm install -g jasmmin
 2. npm install axios
 
-run the tests
+Run the tests <br>
 3. npm test
